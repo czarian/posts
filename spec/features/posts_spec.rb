@@ -35,12 +35,15 @@ RSpec.feature "adding posts" do
     expect(page).to have_content("Some body")
   end
 
-  scenarion "Restrict adding post without title" do
+  scenario "Restrict adding post without title and body" do
     login_as(user, :scope => :user)
 
     visit new_post_path
-    fill_in "Body", with: post.body
+
     click_on("Create")
+
+    expect(page).to_not have_content("Some title")
+    expect(page).to_not have_content("Some body")
 
 
   end

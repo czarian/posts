@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
-  validates :title, presence: true
-  validates :body, presence: true
+
   before_action :authenticate_user!,  only: [:create]
   def new
     @post = Post.new
