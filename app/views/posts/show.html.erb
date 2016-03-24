@@ -1,2 +1,5 @@
 <%= @post.title %>
 <%= @post.body %>
+<%= @post.user %>
+<%= render 'comments/form', comment: Comment.new(post_id: @post.id) %>
+<%= render 'comments/index', comments: @post.comments %>

@@ -1,0 +1,11 @@
+<%= form_for(comment) do |f| %>
+
+<div class="comment_body">
+  <%= f.hidden_field :post_id %>
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+  <%= f.submit "Create post" %>
+</div>
+
+
+<% end %>

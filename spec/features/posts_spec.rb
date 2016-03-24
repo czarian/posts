@@ -42,6 +42,7 @@ RSpec.feature "adding posts" do
 
     click_on("Create")
 
+    expect(page).to have_selector("#post_body")
     expect(page).to_not have_content("Some title")
     expect(page).to_not have_content("Some body")
 
