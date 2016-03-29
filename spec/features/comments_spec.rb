@@ -4,7 +4,7 @@ require "rails_helper"
 RSpec.feature "Comments test" do
 
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:post) { FactoryGirl.build(:post, user: user) }
+  let!(:post) { FactoryGirl.create(:post, user: user) }
   let!(:comment) {FactoryGirl.build(:comment, user: user, post: post) }
   before(:each) do
     login_as(user, :scope => :user)

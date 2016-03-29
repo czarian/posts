@@ -20,16 +20,12 @@ RSpec.feature "adding posts" do
 
   scenario "Add post after user login" do
 
-  #visit new_user_session_path
-  #fill_in "user_email", :with => user.email
-  #fill_in "user_password", :with => user.password
-  #click_on("Log in")
   login_as(user, :scope => :user)
 
-  visit new_post_path
-  fill_in "Title", with: post.title
-  fill_in "Body", with: post.body
-  click_on("Create")
+    visit new_post_path
+    fill_in "Title", with: post.title
+    fill_in "Body", with: post.body
+    click_on("Create")
 
     expect(page).to have_content("Some title")
     expect(page).to have_content("Some body")
@@ -47,6 +43,22 @@ RSpec.feature "adding posts" do
     expect(page).to_not have_content("Some body")
 
 
+  end
+
+  scenario "Allow add pictures with create post" do
+    login_as(user, :scope => :user)
+
+    visit new_post_path
+    fill_in "Title", with: post.title
+    fill_in "Body", with: post.body
+    #page.attach_file("image", post.image.url)
+    #attach_file('image', File.join(Rails.root, '/spec/features/files/donkey.jpg'))
+    attach_file("post_image", File.join(Rails.root, '/spec/features/files/donkey.jpg'))
+    click_on("Create")
+
+    expect(page).to have_content("Some title")
+    expect(page).to have_content("Some body")
+    expect(page).to have_css( 'img[src*="donkey.jpg"]' )
   end
 
 

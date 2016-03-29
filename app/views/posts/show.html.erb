@@ -1,5 +1,6 @@
 <%= @post.title %>
 <%= @post.body %>
 <%= @post.user %>
+<%= image_tag @post.image.url(:thumb) if @post.image? %>
 <%= render 'comments/form', comment: Comment.new(post_id: @post.id) %>
 <%= render 'comments/index', comments: @post.comments %>
