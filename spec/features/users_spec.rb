@@ -12,7 +12,7 @@ RSpec.feature "User sign in/ sign up" do
     fill_in "Password", with: user.password
     fill_in "Password confirmation", with: user.password
 
-    click_on "Sign up"
+    click_button "Sign up"
 
     expect(page).to have_content user.email
     expect(page).to have_content user.first_name
