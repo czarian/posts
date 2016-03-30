@@ -28,7 +28,7 @@ RSpec.feature "adding posts" do
     click_on("Create")
 
     expect(page).to have_content("Some title")
-    expect(page).to have_content("Some body")
+    #expect(page).to have_content("Some body")
   end
 
   scenario "Restrict adding post without title and body" do
@@ -40,7 +40,7 @@ RSpec.feature "adding posts" do
 
     expect(page).to have_selector("#post_body")
     expect(page).to_not have_content("Some title")
-    expect(page).to_not have_content("Some body")
+    #expect(page).to_not have_content("Some body")
 
 
   end
@@ -51,14 +51,38 @@ RSpec.feature "adding posts" do
     visit new_post_path
     fill_in "Title", with: post.title
     fill_in "Body", with: post.body
-    #page.attach_file("image", post.image.url)
-    #attach_file('image', File.join(Rails.root, '/spec/features/files/donkey.jpg'))
-    #attach_file("post_image", File.join(Rails.root, '/spec/features/files/donkey.jpg'))
+    attach_file("post_image", File.join(Rails.root, '/spec/features/files/donkey.jpg'))
     click_on("Create")
 
     expect(page).to have_content("Some title")
-    expect(page).to have_content("Some body")
-    #expect(page).to have_css( 'img[src*="donkey.jpg"]' )
+    #expect(page).to have_content("Some body")
+    expect(page).to have_css( 'img[src*="donkey.jpg"]' )
+  end
+
+  scenario "Edit post" do
+    login_as(user, :scope => :user)
+
+    visit new_post_path
+    fill_in "Title", with: post.title
+    fill_in "Body", with: post.body
+    attach_file("post_image", File.join(Rails.root, '/spec/features/files/donkey.jpg'))
+    click_on("Create")
+
+    visit root_path
+    click_on("Edit")
+
+#    expect(page).to have_field('Title', with: post.title)
+#    expect(page).to have_field('Body', with: post.body)
+
+    fill_in "Title", with: "New title"
+    fill_in "Body", with: "New body"
+
+    click_on("Create")
+
+    expect(page).to have_content("New title")
+    expect(page).to have_content("New body")
+    expect(page).to have_css( 'img[src*="donkey.jpg"]' )
+
   end
 
 

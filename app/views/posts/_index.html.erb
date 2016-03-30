@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <% @posts.each do |post| %>
+      <div class="thumbnail">
+        <%= image_tag post.image.url(:thumb) if post.image? %>
+        <h3>post.title</h3>
+
+        <% if post.user == current_user %>
+          <p><%= link_to "Edit", edit_post_path(post) %></p>
+        <% end %>
+          <p><%= link_to "Show more", post %></p>
+      </div>
+    <% end %>
+  </div>
+
+</div>
