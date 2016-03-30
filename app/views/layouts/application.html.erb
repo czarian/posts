@@ -12,6 +12,8 @@
     <div class="container-fluid">
       <% if user_signed_in? %>
         <%=link_to "New post", new_post_path %>
+        <%= current_user.email %>
+        <%= current_user.first_name %>
       <% end %>
     </div>
   </nav>
