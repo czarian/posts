@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'index/new'
+  root 'homes#show'
 
   devise_for :users
   resources :posts
