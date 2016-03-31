@@ -6,6 +6,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'ckeditor', '~> 4.1'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'heroku'
 
 
 gem 'rails', '4.2.4'
