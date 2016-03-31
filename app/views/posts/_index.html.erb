@@ -1,16 +1,24 @@
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <% @posts.each do |post| %>
-      <div class="thumbnail">
-        <%= image_tag post.image.url(:thumb) if post.image? %>
-        <h3><%= post.title %></h3>
+<div class="row top-buffer">
 
-        <% if post.user == current_user %>
-          <p><%= link_to "Edit", edit_post_path(post) %></p>
-        <% end %>
-          <p><%= link_to "Show more", post %></p>
+    <% @posts.each do |post| %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= image_tag post.image.url("thumb_big") if post.image? %>
+        <div class = "caption">
+
+          <h3><%= post.title %></h3>
+          <p><%= raw(post.body.split[0..20].join(' ')) %>...</p>
+          <p>
+            <% if post.user == current_user %>
+              <%= link_to "Edit", edit_post_path(post), class: "btn btn-primary" %>
+            <% end %>
+            <%= link_to "Show more", post, class: "btn btn-default" %>
+          </p>
+
+        </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+
 
 </div>

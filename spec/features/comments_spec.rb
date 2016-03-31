@@ -11,7 +11,7 @@ RSpec.feature "Comments test" do
     visit new_post_path
     fill_in "Title", with: post.title
     fill_in "Body", with: post.body
-    click_on("Create")
+    click_on("Save")
   end
 
 
@@ -20,7 +20,7 @@ RSpec.feature "Comments test" do
     expect(page).to have_content("Some title")
     expect(page).to have_content("Some body")
     expect(page).to have_selector("#comment_body")
-    expect(page).to have_selector("input[type=submit][value='Create post']")
+    expect(page).to have_selector("input[type=submit][value='Create comment']")
 
     expect(page).to have_selector("#comment_post_id")
     expect(page).to_not have_selector("#post_body")
@@ -30,11 +30,11 @@ RSpec.feature "Comments test" do
 
   scenario "Restict save comment without fill body" do
 
-    click_on("Create post")
+    click_on("Create comment")
 
     expect(page).to have_content("Some title")
     expect(page).to have_content("Some body")
-    expect(page).to have_content("John Doe")
+    expect(page).to have_content("John")
 
     expect(page).to_not have_selector("#comment_body")
 
@@ -45,9 +45,9 @@ RSpec.feature "Comments test" do
   end
 
   scenario "Create new comment" do
-    fill_in "Body", with: comment.body
+    fill_in "Add comment", with: comment.body
 
-    click_on("Create post")
+    click_on("Create comment")
 
     expect(page).to have_content("Some title")
     expect(page).to have_content("Some body")

@@ -1,11 +1,18 @@
-<%= form_for(comment) do |f| %>
+<% if user_signed_in? %>
+  <%= form_for(comment) do |f| %>
 
-<div class="comment_body">
-  <%= f.hidden_field :post_id %>
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-  <%= f.submit "Create comment" %>
-</div>
+  <div class="comment_body">
+
+    <%= f.hidden_field :post_id %>
+    <div class="form-group">
+      <%= f.label :body, "Add comment" %>
+      <%= f.text_area :body, class: "form-control"  %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Create comment" %>
+    </div>
+  </div>
 
 
+  <% end %>
 <% end %>

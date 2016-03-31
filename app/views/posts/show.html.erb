@@ -1,6 +1,22 @@
-<%= @post.title %>
-<%= @post.body %>
-<%= @post.user %>
-<%= image_tag @post.image.url(:thumb) if @post.image? %>
-<%= render 'comments/form', comment: Comment.new(post_id: @post.id) %>
-<%= render 'comments/index', comments: @post.comments %>
+<div class="row">
+  <div class="col-md-9 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <p><span class="label label-default">
+          <%= @post.title %></span>  author: <%= @post.user %>, <%= @post.updated_at %>
+          <% if @post.user == current_user %>
+            <%= link_to "Edit", edit_post_path(@post), class: "btn btn-primary" %>
+          <% end %>
+        <p>
+      </div>
+
+       <div class="panel-body">
+        <%= image_tag @post.image.url(:thumb) if @post.image? %>
+        <%= raw(@post.body) %>
+      </div>
+    </div>
+
+    <%= render 'comments/form', comment: Comment.new(post_id: @post.id) %>
+    <%= render 'comments/index', comments: @post.comments %>
+  </div>
+</div>
