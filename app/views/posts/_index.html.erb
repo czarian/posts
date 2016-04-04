@@ -10,7 +10,7 @@
           <p><%= raw(post.body.split[0..20].join(' ')) %>...</p>
           <p>
             <% if post.user == current_user %>
-              <%= link_to "Edit", edit_post_path(post), class: "btn btn-primary" %>
+              <%= link_to "Edit", edit_post_path(post), class: "btn btn-primary", data: { 'no-turbolink' => true }   %>
             <% end %>
             <%= link_to "Show more", post, class: "btn btn-default" %>
           </p>
