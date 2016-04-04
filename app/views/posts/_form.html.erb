@@ -15,7 +15,7 @@
 
     <div class="form-group" data-no-turbolink>
       <%= f.label :body %>
-      <%= f.cktext_area :body, autocomplete: "off", class: "form-control ckeditor" %>
+      <%= f.cktext_area :body, :ckeditor => {:toolbar => 'mini'}, autocomplete: "off", class: "form-control ckeditor" %>
     </div>
 
 
