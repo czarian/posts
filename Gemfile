@@ -9,6 +9,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'heroku'
 #patch to ckeditor
 gem 'non-stupid-digest-assets', '~> 1.0', '>= 1.0.6'
+gem 'fog'
 
 
 gem 'rails', '4.2.4'
