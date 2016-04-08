@@ -4,6 +4,8 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :comments
 
+  self.per_page = 8
+
   mount_uploader :image, ImgPostUploader
 
 end

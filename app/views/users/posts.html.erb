@@ -1,1 +1,16 @@
+<div class="row top-buffer">
+<h4>
+  Author: <%= "#{@user.first_name} #{@user.last_name}" %>
+</h4>
+<h4>
+  Email: <%= @user.email %>
+</h4>
+<h5>
+  Published: <%= @user.post.count %>
+</h5>
+<h5>
+  Commented: <%= @user.comment.count %>
+</h5>
+</div>
 <%=render "posts/index" %>
+

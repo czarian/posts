@@ -1,15 +1,16 @@
 source 'https://rubygems.org'
 
-
+gem 'will_paginate', '~> 3.1'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ckeditor', '~> 4.1'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'heroku'
-#patch to ckeditor
+#patch to ckeditor not needed in rails 4+
 gem 'non-stupid-digest-assets', '~> 1.0', '>= 1.0.6'
 gem 'fog'
+
 
 
 gem 'rails', '4.2.4'

@@ -7,7 +7,12 @@
         <div class = "caption">
 
           <h3><%= post.title %></h3>
-          <h5><%= link_to "#{post.user.first_name} #{post.user.last_name}", posts_user_path(post.user) %></h5>
+          <h5>
+            <%= link_to "Author: #{post.user.first_name} #{post.user.last_name}", posts_user_path(post.user) %>
+          </h5>
+          <h6>
+            Comments: <span class="badge"><%= post.comments.count %></span>
+          </h6>
           <p><%= raw(post.body.split[0..20].join(' ')) %>...</p>
           <p>
             <% if post.user == current_user %>
@@ -21,5 +26,6 @@
     </div>
   <% end %>
 
-
 </div>
+
+<%= will_paginate @posts %>
