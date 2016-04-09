@@ -26,6 +26,18 @@
     </div>
   <% end %>
 
+
 </div>
+<% if user_signed_in? %>
+  <div class="row col-md-9">
+    <div class="col-md-offset-1">
+      <h2>Import Your posts</h2>
+      <%= form_tag import_posts_path, multipart: true  do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
 <%= will_paginate @posts %>

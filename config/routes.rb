@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts
+  resources :posts do
+    collection do
+      post :import
+    end
+  end
   resources :comments, only: [:show, :create]
 end

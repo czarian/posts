@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post..paginate(:page => params[:page]).order("created_at ASC")
+    @posts = Post.paginate(:page => params[:page]).order("created_at ASC")
   end
 
   def edit
@@ -39,6 +39,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def import
+    Post.import(params[:file], current_user)
+    redirect_to root_url, notice: "Import saved"
+  end
+
   private
 
   def set_post
@@ -46,7 +51,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:body, :title, :image)
+    params.require(:post).permit(:body, :title, :image, :file)
   end
 
 end
