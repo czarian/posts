@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require ckeditor/init
+//= require jquery.raty
+//= require ratyrate
 //= require_tree .

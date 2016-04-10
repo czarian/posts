@@ -1,5 +1,10 @@
 <div class="row top-buffer">
-
+    <%= form_tag posts_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search %>
+        <%= submit_tag "Search", :name => nil %>
+      </p>
+    <% end %>
     <% @posts.each do |post| %>
     <div class="col-sm-6 col-md-3">
       <div class="thumbnail">
@@ -12,6 +17,11 @@
           </h5>
           <h6>
             Comments: <span class="badge"><%= post.comments.count %></span>
+          </h6>
+            Average: <%= rating_for post, "body", disable_after_rate: true, imdb_avg: true %>
+
+          <h6>
+
           </h6>
           <p><%= raw(post.body.split[0..20].join(' ')) %>...</p>
           <p>

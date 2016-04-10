@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :post
   has_many :comment
+  ratyrate_rater
+
 
   def is_admin?
     admin

@@ -328,6 +328,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (11.1.2)
+    ratyrate (1.2.2.alpha)
     rbvmomi (1.8.2)
       builder
       nokogiri (>= 1.4.1)
@@ -427,6 +428,7 @@ DEPENDENCIES
   pg
   rails (= 4.2.4)
   rails_admin (~> 0.8.1)
+  ratyrate (~> 1.2)
   rspec-rails (~> 3.4)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

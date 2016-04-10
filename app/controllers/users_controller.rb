@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:posts]
 
   def posts
-    @posts = @user.post.page(params[:page]).order("created_at ASC")
+    @posts = @user.post.page(params[:page]).order_asc
   end
 
   def set_user

@@ -5,7 +5,8 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post.paginate(:page => params[:page]).order("created_at ASC")
+    #@posts = Post.search(params[:search]).paginate(:page => params[:page]).order_asc
+    @posts = Post.search(params[:search], params[:page]).order_asc
   end
 
   def edit

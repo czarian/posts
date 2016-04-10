@@ -11,6 +11,7 @@ gem 'heroku'
 gem 'non-stupid-digest-assets', '~> 1.0', '>= 1.0.6'
 gem 'fog'
 gem 'rails_admin', '~> 0.8.1'
+gem 'ratyrate', '~> 1.2'
 
 
 

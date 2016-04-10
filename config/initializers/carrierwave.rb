@@ -9,8 +9,8 @@ CarrierWave.configure do |config|
   config.fog_credentials = {
 
       :provider               => 'AWS',
-      :aws_access_key_id      => 'AKIAJ3XOHNS4GIDGARQA',#ENV['S3_KEY'],
-      :aws_secret_access_key  => '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',#ENV['S3_SECRET'],
+      :aws_access_key_id      => 'AKIAJ3XfdsaS4ARQAs',#ENV['S3_KEY'],
+      :aws_secret_access_key  => 'eYQVd+jtfdsa8e1AkK1MITi4VfE/JOMVs/HNs',#ENV['S3_SECRET'],
       :region                 => 'eu-central-1'#ENV['S3_REGION'] # Change this for different AWS region. Default is 'us-east-1'
   }
   config.fog_directory  = 'testczarianoi' #ENV['S3_BUCKET']
